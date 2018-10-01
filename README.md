@@ -1,5 +1,4 @@
-基于Object.definepropty与发布订阅模式，
-实现Vue双向数据绑定原理
+实现Vue/React虚拟DOM算法
 
 运行npm install 安装
 运行npm run dev 启动
