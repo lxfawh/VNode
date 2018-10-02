@@ -10,7 +10,6 @@ function createElement(tag, props, children) {
     return new VNode(tag, props, children)
 }
 
-
 function render(virtualDom) {
     let tag = virtualDom.tag
     let props = virtualDom.props
@@ -19,7 +18,7 @@ function render(virtualDom) {
     let el = document.createElement(tag)
 
     Object.keys(props).forEach(prop => {
-        el.setAttribute(prop, props[prop])
+        setAttr(el, prop, props[prop])
     })
 
     children.forEach(child => {
@@ -33,6 +32,23 @@ function render(virtualDom) {
     return el;
 }
 
+function setAttr(el, key, value) {
+    switch (key) {
+        case 'value':
+            if (Node.tagName.toUpperCase() === 'INPUT' || Node.tagName.toUpperCase() === "TEXTAREA") {
+                node.value = val
+            } else {
+                el.setAttribute(key, value)
+            }
+
+            break;
+        case 'style':
+            el.style.cssText = value
+            break;
+        default:
+            el.setAttribute(key, value)
+    }
+}
 function renderDOM(el, root) {
     if (Object.prototype.toString.call(root) === '[object String]') {
         document.querySelector(root).appendChild(el)
@@ -40,4 +56,5 @@ function renderDOM(el, root) {
         root.appendChild(el)
     }
 }
-export { createElement, render, renderDOM, VNode }
+
+export { createElement, render, renderDOM, VNode, setAttr }

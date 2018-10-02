@@ -1,4 +1,4 @@
-import { VNode, render } from './element'
+import { VNode, render, setAttr } from './element'
 import * as patchType from './patchType'
 
 let patches;
@@ -26,7 +26,7 @@ function doPatch(node, patches) {
                 let props = patch.props
                 for (let key in props) {
                     if (props[key]) {
-                        node.setAttribute(key, props[key]);
+                        setAttr(node, key, props[key])
                     }
                 }
                 break;

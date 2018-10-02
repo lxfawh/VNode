@@ -17,9 +17,9 @@ let VDom1 = createElement('ul', { class: 'lists', style: "color:red" }, [
 ])
 
 let VDom2 = createElement('ul', { class: 'lists', 'data-key': 'aaa' }, [
-    createElement('li', { class: 'item' }, ['aa']),
-    createElement('li', { class: 'item', style: "color:black" }, ['b']),
+    createElement('li', { class: 'item', style: "color:black" }, ['aa']),
     createElement('li', { class: 'item' }, ['1']),
+    createElement('li', { class: 'item' }, ['bb'])
 ])
 
 
