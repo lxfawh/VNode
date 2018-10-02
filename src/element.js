@@ -11,10 +11,10 @@ function createElement(tag, props, children) {
 }
 
 
-function render(vertualDom) {
-    let tag = vertualDom.tag
-    let props = vertualDom.props
-    let children = vertualDom.children
+function render(virtualDom) {
+    let tag = virtualDom.tag
+    let props = virtualDom.props
+    let children = virtualDom.children
 
     let el = document.createElement(tag)
 
@@ -34,11 +34,10 @@ function render(vertualDom) {
 }
 
 function renderDOM(el, root) {
-    console.log({ root })
     if (Object.prototype.toString.call(root) === '[object String]') {
         document.querySelector(root).appendChild(el)
     } else {
         root.appendChild(el)
     }
 }
-export { createElement, render, renderDOM }
+export { createElement, render, renderDOM, VNode }
